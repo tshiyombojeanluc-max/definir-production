@@ -28,12 +28,10 @@ export default function Footer() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 1fr 1fr",
-            gap: "3rem",
             paddingBottom: "4rem",
             borderBottom: "1px solid rgba(255,255,255,0.08)",
           }}
-          className="grid-cols-1 md:grid-cols-3"
+          className="footer-grid"
         >
           {/* Brand */}
           <div>

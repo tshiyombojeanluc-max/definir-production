@@ -59,10 +59,10 @@ export default function PortfolioPage() {
       {/* Hero */}
       <section
         style={{
-          paddingTop: "180px",
-          paddingBottom: "80px",
-          paddingLeft: "2.5rem",
-          paddingRight: "2.5rem",
+          paddingTop: "clamp(110px, 14vh, 180px)",
+          paddingBottom: "clamp(3rem, 5vw, 80px)",
+          paddingLeft: "clamp(1.25rem, 4vw, 2.5rem)",
+          paddingRight: "clamp(1.25rem, 4vw, 2.5rem)",
           maxWidth: "1400px",
           margin: "0 auto",
           borderBottom: "1px solid rgba(255,255,255,0.08)",
@@ -95,15 +95,14 @@ export default function PortfolioPage() {
       </section>
 
       {/* Grid */}
-      <section style={{ padding: "7rem 2.5rem", maxWidth: "1400px", margin: "0 auto" }}>
+      <section style={{ padding: "clamp(3.5rem, 7vw, 7rem) clamp(1.25rem, 4vw, 2.5rem)", maxWidth: "1400px", margin: "0 auto" }}>
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
             gap: "1px",
             background: "rgba(255,255,255,0.08)",
           }}
-          className="grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
+          className="portfolio-grid"
         >
           {projects.map((project) => (
             <div

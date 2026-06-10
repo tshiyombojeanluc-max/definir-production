@@ -130,7 +130,7 @@ export default function Nav() {
               href={l.href}
               style={{
                 fontFamily:     "var(--serif)",
-                fontSize:       "2rem",
+                fontSize:       "clamp(1.4rem, 6vw, 2rem)",
                 fontWeight:     300,
                 color:          pathname === l.href ? "#fff" : "rgba(255,255,255,0.5)",
                 textDecoration: "none",

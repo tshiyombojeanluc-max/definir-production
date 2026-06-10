@@ -161,15 +161,14 @@ export default function HomePage() {
       <section
         style={{
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
           minHeight: "70vh",
           borderTop: "1px solid rgba(255,255,255,0.08)",
         }}
-        className="grid-cols-1 md:grid-cols-2"
+        className="about-grid"
       >
         <div
           style={{
-            padding: "6rem 4rem",
+            padding: "clamp(3rem, 6vw, 6rem) clamp(1.5rem, 4vw, 4rem)",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -229,7 +228,7 @@ export default function HomePage() {
       <section
         style={{
           borderTop: "1px solid rgba(255,255,255,0.1)",
-          padding: "8rem 2.5rem",
+          padding: "clamp(4rem, 8vw, 8rem) 2.5rem",
           textAlign: "center",
           background: "#fff",
           color: "#000",

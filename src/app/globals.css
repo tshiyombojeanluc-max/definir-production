@@ -106,6 +106,37 @@ h1, h2, h3 {
 .form-grid { grid-template-columns: 1fr 1fr; }
 @media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
 
+/* ── Responsive page grids ── */
+.about-grid     { grid-template-columns: 1fr 1fr; }
+.story-grid     { grid-template-columns: 1fr 1.4fr; gap: 6rem; }
+.team-grid      { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.values-grid    { grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(255,255,255,0.08); }
+.footer-grid    { grid-template-columns: 1fr 1fr 1fr; gap: 3rem; }
+.portfolio-grid { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 768px) {
+  .about-grid     { grid-template-columns: 1fr; }
+  .story-grid     { grid-template-columns: 1fr; gap: 2.5rem; }
+  .team-grid      { grid-template-columns: 1fr; gap: 2rem; }
+  .values-grid    { grid-template-columns: 1fr; background: none; gap: 0; }
+  .footer-grid    { grid-template-columns: 1fr; gap: 2.5rem; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 540px) and (max-width: 768px) {
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-grid      { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── Mobile section spacing ── */
+@media (max-width: 768px) {
+  .section-pad-lg  { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+  .section-pad-xl  { padding-top: 5rem !important; padding-bottom: 5rem !important; }
+  .section-pad-x   { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+  .hero-pt         { padding-top: 110px !important; }
+  .values-grid > * { border-bottom: 1px solid rgba(255,255,255,0.08); }
+}
+
 /* ── Form inputs ── */
 input::placeholder,
 textarea::placeholder { color: rgba(255,255,255,0.2); }

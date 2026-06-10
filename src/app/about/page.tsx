@@ -62,10 +62,10 @@ export default function AboutPage() {
       {/* Hero */}
       <section
         style={{
-          paddingTop: "180px",
+          paddingTop: "clamp(110px, 14vh, 180px)",
           paddingBottom: "0",
-          paddingLeft: "2.5rem",
-          paddingRight: "2.5rem",
+          paddingLeft: "clamp(1.25rem, 4vw, 2.5rem)",
+          paddingRight: "clamp(1.25rem, 4vw, 2.5rem)",
           maxWidth: "1400px",
           margin: "0 auto",
         }}
@@ -112,15 +112,13 @@ export default function AboutPage() {
       {/* Story */}
       <section
         style={{
-          padding: "7rem 2.5rem",
+          padding: "clamp(3.5rem, 7vw, 7rem) clamp(1.25rem, 4vw, 2.5rem)",
           maxWidth: "1400px",
           margin: "0 auto",
           display: "grid",
-          gridTemplateColumns: "1fr 1.4fr",
-          gap: "6rem",
           borderBottom: "1px solid rgba(255,255,255,0.08)",
         }}
-        className="grid-cols-1 md:grid-cols-2"
+        className="story-grid"
       >
         <div>
           <h2 style={{ fontFamily: "var(--serif)", fontSize: "clamp(2rem, 4vw, 3.2rem)", fontWeight: 300, lineHeight: 1.1 }}>
@@ -138,7 +136,7 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section style={{ padding: "7rem 2.5rem", maxWidth: "1400px", margin: "0 auto", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+      <section style={{ padding: "clamp(3.5rem, 7vw, 7rem) clamp(1.25rem, 4vw, 2.5rem)", maxWidth: "1400px", margin: "0 auto", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
         <p className="uppercase-label" style={{ color: "rgba(255,255,255,0.35)", marginBottom: "4rem" }}>
           Milestones
         </p>
@@ -148,8 +146,8 @@ export default function AboutPage() {
               key={i}
               style={{
                 display: "grid",
-                gridTemplateColumns: "120px 1fr",
-                gap: "2rem",
+                gridTemplateColumns: "clamp(60px, 15vw, 120px) 1fr",
+                gap: "1.5rem",
                 padding: "2rem 0",
                 borderTop: "1px solid rgba(255,255,255,0.08)",
                 alignItems: "baseline",
@@ -167,7 +165,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section style={{ padding: "7rem 2.5rem", maxWidth: "1400px", margin: "0 auto", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+      <section style={{ padding: "clamp(3.5rem, 7vw, 7rem) clamp(1.25rem, 4vw, 2.5rem)", maxWidth: "1400px", margin: "0 auto", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
         <p className="uppercase-label" style={{ color: "rgba(255,255,255,0.35)", marginBottom: "1rem" }}>
           The Team
         </p>
@@ -182,10 +180,7 @@ export default function AboutPage() {
           Meet the people<br />behind définir
         </h2>
 
-        <div
-          style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "2rem" }}
-          className="grid-cols-1 md:grid-cols-3"
-        >
+        <div style={{ display: "grid" }} className="team-grid">
           {team.map((member) => (
             <div key={member.name}>
               <div
@@ -221,7 +216,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section style={{ padding: "7rem 2.5rem", maxWidth: "1400px", margin: "0 auto", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+      <section style={{ padding: "clamp(3.5rem, 7vw, 7rem) clamp(1.25rem, 4vw, 2.5rem)", maxWidth: "1400px", margin: "0 auto", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
         <p className="uppercase-label" style={{ color: "rgba(255,255,255,0.35)", marginBottom: "1rem" }}>
           What We Stand For
         </p>
@@ -229,9 +224,9 @@ export default function AboutPage() {
           Our Values
         </h2>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1px", background: "rgba(255,255,255,0.08)" }} className="grid-cols-1 md:grid-cols-2">
+        <div style={{ display: "grid" }} className="values-grid">
           {values.map((v) => (
-            <div key={v.num} style={{ background: "#000", padding: "3rem" }}>
+            <div key={v.num} style={{ background: "#000", padding: "clamp(1.5rem, 3vw, 3rem)" }}>
               <span
                 style={{
                   fontFamily: "var(--serif)",
@@ -257,7 +252,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ padding: "6rem 2.5rem", textAlign: "center" }}>
+      <section style={{ padding: "clamp(3rem, 6vw, 6rem) clamp(1.25rem, 4vw, 2.5rem)", textAlign: "center" }}>
         <h2 style={{ fontFamily: "var(--serif)", fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 300, marginBottom: "2rem" }}>
           Join the studio
         </h2>

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
 import dynamic from "next/dynamic"
 import { models, allPortfolioImages, type Model, type ModelCategory } from "@/lib/models-data"
 import { ModelCard } from "@/components/models/model-card"
@@ -10,7 +10,7 @@ import { BecomeModelForm } from "@/components/models/become-model-form"
 const SphereImageGrid = dynamic(() => import("@/components/ui/img-sphere"), {
   ssr: false,
   loading: () => (
-    <div style={{ width: 520, height: 520, display: "flex", alignItems: "center", justifyContent: "center" }}>
+    <div style={{ width: "min(520px, calc(100vw - 40px))", aspectRatio: "1", display: "flex", alignItems: "center", justifyContent: "center" }}>
       <p style={{ fontFamily: "var(--sans)", fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)" }}>
         Loading gallery...
       </p>
@@ -31,6 +31,17 @@ const sphereImages = allPortfolioImages.map((img) => ({
 export default function ModelsClient() {
   const [activeCategory, setActiveCategory] = useState<ModelCategory | "All">("All")
   const [selectedModel, setSelectedModel] = useState<Model | null>(null)
+  const [sphereSize, setSphereSize] = useState(520)
+
+  useEffect(() => {
+    const update = () => {
+      const size = Math.min(window.innerWidth - 40, 520)
+      setSphereSize(size)
+    }
+    update()
+    window.addEventListener("resize", update)
+    return () => window.removeEventListener("resize", update)
+  }, [])
 
   const filtered = useMemo(
     () => (activeCategory === "All" ? models : models.filter((m) => m.category === activeCategory)),
@@ -54,7 +65,7 @@ export default function ModelsClient() {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            padding: "5rem 2.5rem",
+            padding: "clamp(3rem, 5vw, 5rem) clamp(1.25rem, 4vw, 2.5rem)",
             maxWidth: "1400px",
             margin: "0 auto",
             width: "100%",
@@ -136,10 +147,11 @@ export default function ModelsClient() {
           <div
             style={{
               display: "flex",
-              gap: "3rem",
-              marginTop: "4rem",
+              gap: "clamp(1.5rem, 5vw, 3rem)",
+              marginTop: "clamp(2rem, 4vw, 4rem)",
               paddingTop: "2.5rem",
               borderTop: "1px solid rgba(255,255,255,0.08)",
+              flexWrap: "wrap",
             }}
           >
             {[
@@ -165,7 +177,7 @@ export default function ModelsClient() {
       <section
         id="models-grid"
         style={{
-          padding: "6rem 2.5rem",
+          padding: "clamp(3rem, 6vw, 6rem) clamp(1.25rem, 4vw, 2.5rem)",
           maxWidth: "1400px",
           margin: "0 auto",
         }}
@@ -210,7 +222,6 @@ export default function ModelsClient() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
             gap: "1px",
             background: "rgba(255,255,255,0.06)",
           }}
@@ -241,13 +252,14 @@ export default function ModelsClient() {
       {/* ── Sphere Gallery ── */}
       <section
         style={{
-          padding: "6rem 2.5rem",
+          padding: "clamp(3rem, 6vw, 6rem) clamp(1.25rem, 4vw, 2.5rem)",
           borderTop: "1px solid rgba(255,255,255,0.08)",
           background: "#030303",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           textAlign: "center",
+          overflow: "hidden",
         }}
       >
         <p className="uppercase-label" style={{ color: "rgba(255,255,255,0.3)", marginBottom: "1rem" }}>
@@ -279,8 +291,8 @@ export default function ModelsClient() {
         <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
           <SphereImageGrid
             images={sphereImages}
-            containerSize={520}
-            sphereRadius={200}
+            containerSize={sphereSize}
+            sphereRadius={Math.round(sphereSize * 0.385)}
             autoRotate
             autoRotateSpeed={0.18}
             dragSensitivity={0.7}
@@ -293,18 +305,14 @@ export default function ModelsClient() {
       <section
         id="become-model"
         style={{
-          padding: "8rem 2.5rem",
+          padding: "clamp(4rem, 8vw, 8rem) clamp(1.25rem, 4vw, 2.5rem)",
           borderTop: "1px solid rgba(255,255,255,0.08)",
           maxWidth: "1400px",
           margin: "0 auto",
         }}
       >
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 2fr",
-            gap: "6rem",
-          }}
+          style={{ display: "grid" }}
           className="apply-grid"
         >
           {/* Left — intro */}

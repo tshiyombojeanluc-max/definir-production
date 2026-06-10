@@ -44,10 +44,10 @@ export default function ServicesPage() {
       {/* Hero */}
       <section
         style={{
-          paddingTop: "180px",
-          paddingBottom: "80px",
-          paddingLeft: "2.5rem",
-          paddingRight: "2.5rem",
+          paddingTop: "clamp(110px, 14vh, 180px)",
+          paddingBottom: "clamp(3rem, 5vw, 80px)",
+          paddingLeft: "clamp(1.25rem, 4vw, 2.5rem)",
+          paddingRight: "clamp(1.25rem, 4vw, 2.5rem)",
           maxWidth: "1400px",
           margin: "0 auto",
           borderBottom: "1px solid rgba(255,255,255,0.08)",
