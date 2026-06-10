@@ -61,7 +61,7 @@ export default function Nav() {
         </Link>
 
         {/* ── Desktop nav ── */}
-        <nav style={{ display: "flex", gap: "2.5rem", alignItems: "center" }} className="hidden md:flex">
+        <nav style={{ display: "flex", gap: "2rem", alignItems: "center" }} className="hidden lg:flex">
           {links.map((l) => (
             <Link
               key={l.href}
@@ -103,7 +103,7 @@ export default function Nav() {
 
         {/* ── Mobile toggle ── */}
         <button
-          className="md:hidden"
+          className="lg:hidden"
           onClick={() => setOpen((p) => !p)}
           style={{ background: "none", border: "none", color: "#fff", cursor: "pointer", padding: "4px" }}
           aria-label="Toggle menu"

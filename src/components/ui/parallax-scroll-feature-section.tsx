@@ -32,19 +32,19 @@ function ParallaxSection({ section }: { section: SectionData }) {
     <div
       ref={ref}
       style={{
-        minHeight: "100vh",
+        minHeight: "80vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        gap: "6rem",
-        padding: "0 2.5rem",
-        flexDirection: section.reverse ? "row-reverse" : "row",
+        padding: "clamp(4rem, 8vw, 7rem) clamp(1.25rem, 4vw, 2.5rem)",
         borderBottom: "1px solid rgba(255,255,255,0.06)",
       }}
-      className="flex-col md:flex-row"
+      className={section.reverse ? "service-row-reverse" : "service-row"}
     >
       {/* Text side */}
-      <motion.div style={{ y: translateY }} className="max-w-sm">
+      <motion.div
+        style={{ y: translateY, flexShrink: 0, maxWidth: "min(420px, 100%)" }}
+      >
         <p
           style={{
             fontFamily: "var(--sans)",
@@ -99,16 +99,20 @@ function ParallaxSection({ section }: { section: SectionData }) {
 
       {/* Image side */}
       <motion.div
-        style={{ opacity, clipPath }}
+        style={{
+          opacity,
+          clipPath,
+          width: "min(420px, 100%)",
+          flexShrink: 0,
+        }}
       >
         <div
           style={{
-            width: "380px",
-            height: "480px",
+            width: "100%",
+            aspectRatio: "4/5",
             overflow: "hidden",
             position: "relative",
           }}
-          className="w-64 h-80 md:w-96 md:h-[480px]"
         >
           <img
             src={section.imageUrl}
@@ -117,7 +121,9 @@ function ParallaxSection({ section }: { section: SectionData }) {
               width: "100%",
               height: "100%",
               objectFit: "cover",
+              objectPosition: "center top",
               filter: "grayscale(15%)",
+              display: "block",
             }}
           />
         </div>
