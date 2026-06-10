@@ -59,11 +59,8 @@ export default function Nav() {
           />
         </Link>
 
-        {/* ── Desktop nav — NOTE: no display in inline style, Tailwind hidden/flex owns visibility ── */}
-        <nav
-          className="hidden lg:flex"
-          style={{ gap: "2rem", alignItems: "center" }}
-        >
+        {/* ── Desktop nav ── */}
+        <nav className="nav-desktop">
           {links.map((l) => (
             <Link
               key={l.href}
@@ -108,7 +105,7 @@ export default function Nav() {
 
         {/* ── Mobile toggle ── */}
         <button
-          className="lg:hidden"
+          className="nav-mobile-btn"
           onClick={() => setOpen((p) => !p)}
           style={{ background: "none", border: "none", color: "#fff", cursor: "pointer", padding: "4px" }}
           aria-label="Toggle menu"

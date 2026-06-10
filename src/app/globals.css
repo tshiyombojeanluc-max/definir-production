@@ -128,6 +128,15 @@ h1, h2, h3 {
   .team-grid      { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ── Nav visibility ── */
+.nav-desktop    { display: none; }
+.nav-mobile-btn { display: flex; }
+
+@media (min-width: 1024px) {
+  .nav-desktop    { display: flex; align-items: center; gap: 2rem; }
+  .nav-mobile-btn { display: none; }
+}
+
 /* ── Services layout ── */
 .service-row         { flex-direction: row;         gap: clamp(3rem, 6vw, 6rem); }
 .service-row-reverse { flex-direction: row-reverse; gap: clamp(3rem, 6vw, 6rem); }
