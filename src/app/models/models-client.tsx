@@ -187,7 +187,7 @@ export default function ModelsClient() {
           style={{
             display: "flex",
             gap: "0",
-            marginBottom: "4rem",
+            marginBottom: "clamp(1.5rem, 4vw, 4rem)",
             borderBottom: "1px solid rgba(255,255,255,0.08)",
             overflowX: "auto",
           }}

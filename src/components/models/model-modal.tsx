@@ -59,14 +59,13 @@ export function ModelModal({ model, onClose }: ModelModalProps) {
               background: "#000",
               borderLeft: "1px solid rgba(255,255,255,0.08)",
               display: "grid",
-              gridTemplateColumns: "1fr 1fr",
               position: "relative",
             }}
             className="modal-grid"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Left — hero image */}
-            <div style={{ position: "sticky", top: 0, height: "100vh", overflow: "hidden" }}>
+            <div className="modal-img-col">
               <img
                 src={model.heroImage}
                 alt={model.name}
@@ -102,7 +101,7 @@ export function ModelModal({ model, onClose }: ModelModalProps) {
             </div>
 
             {/* Right — details */}
-            <div style={{ padding: "5rem 3rem 4rem", overflowY: "auto" }}>
+            <div style={{ padding: "clamp(2rem, 5vw, 5rem) clamp(1.25rem, 4vw, 3rem) clamp(2rem, 4vw, 4rem)", overflowY: "auto" }}>
               {/* Name */}
               <h2
                 style={{
@@ -234,7 +233,7 @@ export function ModelModal({ model, onClose }: ModelModalProps) {
                 <p className="uppercase-label" style={{ color: "rgba(255,255,255,0.3)", marginBottom: "1rem" }}>
                   Portfolio
                 </p>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "4px" }}>
+                <div className="modal-portfolio-grid">
                   {model.portfolioImages.map((src, i) => (
                     <div key={i} style={{ aspectRatio: "3/4", overflow: "hidden" }}>
                       <img
@@ -280,8 +279,8 @@ export function ModelModal({ model, onClose }: ModelModalProps) {
               onClick={onClose}
               style={{
                 position: "fixed",
-                top: "1.5rem",
-                right: "1.5rem",
+                top: "clamp(0.75rem, 2vw, 1.5rem)",
+                right: "clamp(0.75rem, 2vw, 1.5rem)",
                 zIndex: 110,
                 width: "44px",
                 height: "44px",

@@ -90,6 +90,17 @@ h1, h2, h3 {
   font-family: var(--serif);
 }
 
+/* ── Model modal ── */
+.modal-grid          { grid-template-columns: 1fr 1fr; }
+.modal-img-col       { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+.modal-portfolio-grid{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+
+@media (max-width: 768px) {
+  .modal-grid           { grid-template-columns: 1fr; }
+  .modal-img-col        { position: relative; top: auto; height: 70vw; }
+  .modal-portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* ── Models page grid ── */
 .models-hero  { grid-template-columns: 1fr 1fr; }
 .models-cards { grid-template-columns: repeat(3, 1fr); }

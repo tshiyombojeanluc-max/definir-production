@@ -165,7 +165,7 @@ export function BecomeModelForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem 2.5rem" }} className="form-grid">
+      <div style={{ display: "grid", gap: "2rem 2.5rem" }} className="form-grid">
 
         {/* Personal */}
         {sectionTitle("Personal Information")}
