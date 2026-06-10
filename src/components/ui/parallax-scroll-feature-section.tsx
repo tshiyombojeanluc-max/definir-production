@@ -1,0 +1,141 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+
+interface SectionData {
+  id: number;
+  label: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  reverse: boolean;
+}
+
+function ParallaxSection({ section }: { section: SectionData }) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "center start"],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.7], [0, 1]);
+  const clipPath = useTransform(
+    scrollYProgress,
+    [0, 0.7],
+    ["inset(0 100% 0 0)", "inset(0 0% 0 0)"]
+  );
+  const translateY = useTransform(scrollYProgress, [0, 1], [-50, 0]);
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: "6rem",
+        padding: "0 2.5rem",
+        flexDirection: section.reverse ? "row-reverse" : "row",
+        borderBottom: "1px solid rgba(255,255,255,0.06)",
+      }}
+      className="flex-col md:flex-row"
+    >
+      {/* Text side */}
+      <motion.div style={{ y: translateY }} className="max-w-sm">
+        <p
+          style={{
+            fontFamily: "var(--sans)",
+            fontSize: "0.65rem",
+            fontWeight: 500,
+            letterSpacing: "0.22em",
+            textTransform: "uppercase",
+            color: "rgba(255,255,255,0.4)",
+            marginBottom: "1.5rem",
+          }}
+        >
+          {section.label}
+        </p>
+        <h2
+          style={{
+            fontFamily: "var(--serif)",
+            fontSize: "clamp(2.4rem, 5vw, 4rem)",
+            fontWeight: 300,
+            lineHeight: 1.05,
+            marginBottom: "1.5rem",
+          }}
+        >
+          {section.title}
+        </h2>
+        <p
+          style={{
+            fontFamily: "var(--sans)",
+            fontSize: "0.9rem",
+            color: "rgba(255,255,255,0.55)",
+            lineHeight: 1.75,
+          }}
+        >
+          {section.description}
+        </p>
+        <div
+          style={{
+            display: "inline-block",
+            marginTop: "2.5rem",
+            borderBottom: "1px solid rgba(255,255,255,0.4)",
+            paddingBottom: "2px",
+            fontFamily: "var(--sans)",
+            fontSize: "0.65rem",
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            cursor: "pointer",
+            transition: "border-color 0.2s",
+          }}
+        >
+          Learn More
+        </div>
+      </motion.div>
+
+      {/* Image side */}
+      <motion.div
+        style={{ opacity, clipPath }}
+      >
+        <div
+          style={{
+            width: "380px",
+            height: "480px",
+            overflow: "hidden",
+            position: "relative",
+          }}
+          className="w-64 h-80 md:w-96 md:h-[480px]"
+        >
+          <img
+            src={section.imageUrl}
+            alt={section.title}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              filter: "grayscale(15%)",
+            }}
+          />
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
+interface ParallaxScrollProps {
+  sections: SectionData[];
+}
+
+export function ParallaxScrollFeatureSection({ sections }: ParallaxScrollProps) {
+  return (
+    <div>
+      {sections.map((section) => (
+        <ParallaxSection key={section.id} section={section} />
+      ))}
+    </div>
+  );
+}
