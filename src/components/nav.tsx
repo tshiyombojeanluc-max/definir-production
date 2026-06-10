@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { label: "Home",      href: "/" },
   { label: "Services",  href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Models",    href: "/models" },
@@ -41,7 +40,7 @@ export default function Nav() {
         style={{
           maxWidth: "1400px",
           margin: "0 auto",
-          padding: "0 2.5rem",
+          padding: "0 2rem",
           height: "72px",
           display: "flex",
           alignItems: "center",
@@ -53,22 +52,25 @@ export default function Nav() {
           <Image
             src="/images/logo.png"
             alt="définir Production"
-            width={52}
-            height={52}
+            width={48}
+            height={48}
             style={{ borderRadius: "50%", objectFit: "cover", display: "block" }}
             priority
           />
         </Link>
 
-        {/* ── Desktop nav ── */}
-        <nav style={{ display: "flex", gap: "2rem", alignItems: "center" }} className="hidden lg:flex">
+        {/* ── Desktop nav — NOTE: no display in inline style, Tailwind hidden/flex owns visibility ── */}
+        <nav
+          className="hidden lg:flex"
+          style={{ gap: "2rem", alignItems: "center" }}
+        >
           {links.map((l) => (
             <Link
               key={l.href}
               href={l.href}
               style={{
                 fontFamily:     "var(--sans)",
-                fontSize:       "0.65rem",
+                fontSize:       "0.62rem",
                 fontWeight:     500,
                 letterSpacing:  "0.2em",
                 textTransform:  "uppercase",
@@ -77,6 +79,7 @@ export default function Nav() {
                 transition:     "color 0.2s",
                 borderBottom:   pathname === l.href ? "1px solid #fff" : "1px solid transparent",
                 paddingBottom:  "2px",
+                whiteSpace:     "nowrap",
               }}
             >
               {l.label}
@@ -86,15 +89,17 @@ export default function Nav() {
             href="/contact"
             style={{
               fontFamily:     "var(--sans)",
-              fontSize:       "0.65rem",
+              fontSize:       "0.62rem",
               fontWeight:     500,
               letterSpacing:  "0.2em",
               textTransform:  "uppercase",
               color:          "#000",
               background:     "#fff",
-              padding:        "0.55rem 1.4rem",
+              padding:        "0.55rem 1.3rem",
               textDecoration: "none",
               transition:     "opacity 0.2s",
+              whiteSpace:     "nowrap",
+              flexShrink:     0,
             }}
           >
             Book Now
@@ -116,12 +121,12 @@ export default function Nav() {
       {open && (
         <div
           style={{
-            background:  "#000",
-            borderTop:   "1px solid rgba(255,255,255,0.08)",
-            padding:     "2rem 2.5rem",
-            display:     "flex",
-            flexDirection: "column",
-            gap:         "1.75rem",
+            background:     "#000",
+            borderTop:      "1px solid rgba(255,255,255,0.08)",
+            padding:        "2rem",
+            display:        "flex",
+            flexDirection:  "column",
+            gap:            "1.75rem",
           }}
         >
           {links.map((l) => (
@@ -140,6 +145,24 @@ export default function Nav() {
               {l.label}
             </Link>
           ))}
+          <Link
+            href="/contact"
+            style={{
+              fontFamily:    "var(--sans)",
+              fontSize:      "0.65rem",
+              fontWeight:    500,
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              color:         "#000",
+              background:    "#fff",
+              padding:       "0.85rem 2rem",
+              textDecoration: "none",
+              textAlign:     "center",
+              marginTop:     "0.5rem",
+            }}
+          >
+            Book Now
+          </Link>
         </div>
       )}
     </header>
