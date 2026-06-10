@@ -1,6 +1,5 @@
 "use client";
 
-import type { Metadata } from "next";
 import { useState } from "react";
 
 const projectTypes = [
@@ -63,10 +62,10 @@ export default function ContactPage() {
       {/* Hero */}
       <section
         style={{
-          paddingTop: "180px",
-          paddingBottom: "60px",
-          paddingLeft: "2.5rem",
-          paddingRight: "2.5rem",
+          paddingTop: "clamp(110px, 14vh, 180px)",
+          paddingBottom: "clamp(2rem, 4vw, 60px)",
+          paddingLeft: "clamp(1.25rem, 4vw, 2.5rem)",
+          paddingRight: "clamp(1.25rem, 4vw, 2.5rem)",
           maxWidth: "1400px",
           margin: "0 auto",
           borderBottom: "1px solid rgba(255,255,255,0.08)",
@@ -104,48 +103,46 @@ export default function ContactPage() {
           maxWidth: "1400px",
           margin: "0 auto",
           display: "grid",
-          gridTemplateColumns: "1fr 1.5fr",
-          minHeight: "80vh",
           borderBottom: "1px solid rgba(255,255,255,0.08)",
         }}
-        className="grid-cols-1 md:grid-cols-2"
+        className="contact-grid"
       >
         {/* Left — contact info */}
         <div
           style={{
-            padding: "5rem 2.5rem",
-            borderRight: "1px solid rgba(255,255,255,0.08)",
+            padding: "clamp(2.5rem, 5vw, 5rem) clamp(1.25rem, 4vw, 2.5rem)",
             display: "flex",
             flexDirection: "column",
-            gap: "3.5rem",
+            gap: "2.5rem",
           }}
+          className="contact-info-col"
         >
           <div>
-            <p className="uppercase-label" style={{ color: "rgba(255,255,255,0.35)", marginBottom: "1.2rem" }}>
+            <p className="uppercase-label" style={{ color: "rgba(255,255,255,0.35)", marginBottom: "1rem" }}>
               Bookings
             </p>
             <p style={{ fontFamily: "var(--sans)", fontSize: "0.95rem", color: "rgba(255,255,255,0.7)", marginBottom: "0.4rem" }}>
               bookings@dstudio.com
             </p>
-            <p style={{ fontFamily: "var(--sans)", fontSize: "0.9rem", color: "rgba(255,255,255,0.4)" }}>
+            <p style={{ fontFamily: "var(--sans)", fontSize: "0.85rem", color: "rgba(255,255,255,0.4)" }}>
               Response within 24 hours
             </p>
           </div>
 
           <div>
-            <p className="uppercase-label" style={{ color: "rgba(255,255,255,0.35)", marginBottom: "1.2rem" }}>
+            <p className="uppercase-label" style={{ color: "rgba(255,255,255,0.35)", marginBottom: "1rem" }}>
               Talent Inquiries
             </p>
             <p style={{ fontFamily: "var(--sans)", fontSize: "0.95rem", color: "rgba(255,255,255,0.7)", marginBottom: "0.4rem" }}>
               talent@dstudio.com
             </p>
-            <p style={{ fontFamily: "var(--sans)", fontSize: "0.9rem", color: "rgba(255,255,255,0.4)" }}>
+            <p style={{ fontFamily: "var(--sans)", fontSize: "0.85rem", color: "rgba(255,255,255,0.4)" }}>
               Open calls on first Monday of each month
             </p>
           </div>
 
           <div>
-            <p className="uppercase-label" style={{ color: "rgba(255,255,255,0.35)", marginBottom: "1.2rem" }}>
+            <p className="uppercase-label" style={{ color: "rgba(255,255,255,0.35)", marginBottom: "1rem" }}>
               Press
             </p>
             <p style={{ fontFamily: "var(--sans)", fontSize: "0.95rem", color: "rgba(255,255,255,0.7)" }}>
@@ -154,7 +151,7 @@ export default function ContactPage() {
           </div>
 
           <div>
-            <p className="uppercase-label" style={{ color: "rgba(255,255,255,0.35)", marginBottom: "1.2rem" }}>
+            <p className="uppercase-label" style={{ color: "rgba(255,255,255,0.35)", marginBottom: "1rem" }}>
               Offices
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
@@ -168,7 +165,11 @@ export default function ContactPage() {
         </div>
 
         {/* Right — form */}
-        <div style={{ padding: "5rem 3.5rem" }}>
+        <div
+          style={{
+            padding: "clamp(2.5rem, 5vw, 5rem) clamp(1.25rem, 4vw, 3.5rem)",
+          }}
+        >
           {submitted ? (
             <div
               style={{
@@ -176,7 +177,7 @@ export default function ContactPage() {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                height: "100%",
+                minHeight: "400px",
                 textAlign: "center",
                 gap: "1.5rem",
               }}
@@ -195,7 +196,7 @@ export default function ContactPage() {
               >
                 ✓
               </div>
-              <h2 style={{ fontFamily: "var(--serif)", fontSize: "2.5rem", fontWeight: 300 }}>
+              <h2 style={{ fontFamily: "var(--serif)", fontSize: "clamp(1.8rem, 4vw, 2.5rem)", fontWeight: 300 }}>
                 Message Received
               </h2>
               <p style={{ fontFamily: "var(--sans)", fontSize: "0.9rem", color: "rgba(255,255,255,0.5)", maxWidth: "360px", lineHeight: 1.75 }}>
@@ -203,9 +204,9 @@ export default function ContactPage() {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
+            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
               {/* Name row */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
+              <div className="contact-name-row">
                 <div>
                   <label htmlFor="firstName" style={labelStyle}>First Name</label>
                   <input
@@ -296,7 +297,6 @@ export default function ContactPage() {
                   style={{
                     ...inputStyle,
                     resize: "none",
-                    borderBottom: "1px solid rgba(255,255,255,0.2)",
                   }}
                   placeholder="Describe your project, timeline, and budget..."
                 />
@@ -317,6 +317,7 @@ export default function ContactPage() {
                   cursor: "pointer",
                   width: "100%",
                   transition: "opacity 0.2s",
+                  marginTop: "0.5rem",
                 }}
               >
                 Send Message

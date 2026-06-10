@@ -20,6 +20,7 @@ html {
   scroll-behavior: smooth;
   background: #000;
   color: #fff;
+  overflow-x: hidden;
 }
 
 body {
@@ -28,6 +29,7 @@ body {
   font-family: var(--sans);
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 h1, h2, h3 {
@@ -126,6 +128,17 @@ h1, h2, h3 {
 @media (min-width: 540px) and (max-width: 768px) {
   .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
   .team-grid      { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── Contact page ── */
+.contact-grid      { grid-template-columns: 1fr 1.5fr; }
+.contact-name-row  { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.contact-info-col  { border-right: 1px solid rgba(255,255,255,0.08); border-bottom: none; }
+
+@media (max-width: 768px) {
+  .contact-grid     { grid-template-columns: 1fr; }
+  .contact-name-row { grid-template-columns: 1fr; gap: 0; }
+  .contact-info-col { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
 }
 
 /* ── Nav visibility ── */
