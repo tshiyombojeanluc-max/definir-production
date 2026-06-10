@@ -14,8 +14,7 @@ const services = [
     title: "Talent Management",
     description:
       "We represent a diverse roster of models, artists, and creative professionals. From discovery to career development, we guide talent at every stage — negotiating contracts, securing placements, and building long-term partnerships with the world's leading brands and publications.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=800&auto=format&fit=crop&q=80",
+    imageUrl: "/images/service-talent.jpg",
     reverse: false,
   },
   {
@@ -24,8 +23,7 @@ const services = [
     title: "Production Direction",
     description:
       "End-to-end production for editorial shoots, campaigns, lookbooks, and runway presentations. Our production team handles everything from location scouting and casting to crew coordination and post-production — delivering exceptional results on time and on budget.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&auto=format&fit=crop&q=80",
+    imageUrl: "/images/service-production.jpg",
     reverse: true,
   },
   {
@@ -34,8 +32,7 @@ const services = [
     title: "Creative Casting",
     description:
       "Strategic casting that brings creative visions to life. We source talent across our global network to find the perfect match for your brand's identity — whether you need high-fashion editorial looks, inclusive commercial appeal, or avant-garde creative profiles.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&auto=format&fit=crop&q=80",
+    imageUrl: "/images/service-casting.jpg",
     reverse: false,
   },
 ];

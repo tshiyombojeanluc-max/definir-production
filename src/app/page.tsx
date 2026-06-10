@@ -215,11 +215,11 @@ export default function HomePage() {
 
         <div style={{ position: "relative", overflow: "hidden", minHeight: "400px" }}>
           <Image
-            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&auto=format&fit=crop&q=50"
-            alt="Production shoot"
+            src="/images/about.jpg"
+            alt="définir team"
             fill
             sizes="50vw"
-            style={{ objectFit: "cover", filter: "grayscale(20%)" }}
+            style={{ objectFit: "cover", objectPosition: "center 20%" }}
           />
           <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.2)" }} />
         </div>

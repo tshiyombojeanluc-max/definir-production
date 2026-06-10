@@ -120,8 +120,8 @@ select option { background: #111; color: #fff; }
   to   { transform: rotate(360deg); }
 }
 
-/* ── Hero ken-burns ── */
-@keyframes heroZoom {
-  from { transform: scale(1.0); }
-  to   { transform: scale(1.07); }
+/* ── Hero scale-in ── */
+@keyframes heroScale {
+  from { transform: scale(1.06); }
+  to   { transform: scale(1.0); }
 }

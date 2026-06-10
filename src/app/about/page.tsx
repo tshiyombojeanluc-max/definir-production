@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About — définir",
@@ -8,24 +9,19 @@ export const metadata: Metadata = {
 
 const team = [
   {
-    name: "Dominique Laurent",
-    role: "Founder & Creative Director",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=80",
+    name: "Elie",
+    role: "Founder & Photographer",
+    image: "/images/models/team-elie.jpg",
   },
   {
-    name: "Marcus Webb",
-    role: "Head of Talent",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&auto=format&fit=crop&q=80",
+    name: "Gradi",
+    role: "Co-founder & Creative Director",
+    image: "/images/models/team-gradi.jpg",
   },
   {
-    name: "Sofia Reyes",
-    role: "Production Director",
-    image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=500&auto=format&fit=crop&q=80",
-  },
-  {
-    name: "James Okafor",
-    role: "Senior Casting Director",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=80",
+    name: "Charles",
+    role: "Videographer & Photographer",
+    image: "/images/models/team-charles.jpg",
   },
 ];
 
@@ -187,8 +183,8 @@ export default function AboutPage() {
         </h2>
 
         <div
-          style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "2rem" }}
-          className="grid-cols-2 md:grid-cols-4"
+          style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "2rem" }}
+          className="grid-cols-1 md:grid-cols-3"
         >
           {team.map((member) => (
             <div key={member.name}>
@@ -201,17 +197,15 @@ export default function AboutPage() {
                   position: "relative",
                 }}
               >
-                <img
+                <Image
                   src={member.image}
                   alt={member.name}
-                  loading="lazy"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   style={{
-                    width: "100%",
-                    height: "100%",
                     objectFit: "cover",
-                    objectPosition: "top",
+                    objectPosition: "center top",
                     filter: "grayscale(20%)",
-                    display: "block",
                   }}
                 />
               </div>
