@@ -88,13 +88,13 @@ export default function Footer() {
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.7rem" }}>
               <p style={{ fontFamily: "var(--sans)", fontSize: "0.85rem", color: "rgba(255,255,255,0.6)" }}>
-                bookings@dstudio.com
+                assistant.definir@gmail.com
               </p>
               <p style={{ fontFamily: "var(--sans)", fontSize: "0.85rem", color: "rgba(255,255,255,0.6)" }}>
-                +1 (212) 555-0199
+                0745761648 / 067 105 758
               </p>
               <p style={{ fontFamily: "var(--sans)", fontSize: "0.85rem", color: "rgba(255,255,255,0.6)" }}>
-                New York · Paris · Milan
+                Cape Town, South Africa
               </p>
             </div>
             <div style={{ display: "flex", gap: "1.5rem", marginTop: "2rem" }}>

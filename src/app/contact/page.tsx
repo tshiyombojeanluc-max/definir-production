@@ -119,10 +119,10 @@ export default function ContactPage() {
         >
           <div>
             <p className="uppercase-label" style={{ color: "rgba(255,255,255,0.35)", marginBottom: "1rem" }}>
-              Bookings
+              Email
             </p>
             <p style={{ fontFamily: "var(--sans)", fontSize: "0.95rem", color: "rgba(255,255,255,0.7)", marginBottom: "0.4rem" }}>
-              bookings@dstudio.com
+              assistant.definir@gmail.com
             </p>
             <p style={{ fontFamily: "var(--sans)", fontSize: "0.85rem", color: "rgba(255,255,255,0.4)" }}>
               Response within 24 hours
@@ -131,36 +131,23 @@ export default function ContactPage() {
 
           <div>
             <p className="uppercase-label" style={{ color: "rgba(255,255,255,0.35)", marginBottom: "1rem" }}>
-              Talent Inquiries
+              Phone
             </p>
             <p style={{ fontFamily: "var(--sans)", fontSize: "0.95rem", color: "rgba(255,255,255,0.7)", marginBottom: "0.4rem" }}>
-              talent@dstudio.com
-            </p>
-            <p style={{ fontFamily: "var(--sans)", fontSize: "0.85rem", color: "rgba(255,255,255,0.4)" }}>
-              Open calls on first Monday of each month
-            </p>
-          </div>
-
-          <div>
-            <p className="uppercase-label" style={{ color: "rgba(255,255,255,0.35)", marginBottom: "1rem" }}>
-              Press
+              0745761648
             </p>
             <p style={{ fontFamily: "var(--sans)", fontSize: "0.95rem", color: "rgba(255,255,255,0.7)" }}>
-              press@dstudio.com
+              067 105 758
             </p>
           </div>
 
           <div>
             <p className="uppercase-label" style={{ color: "rgba(255,255,255,0.35)", marginBottom: "1rem" }}>
-              Offices
+              Location
             </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-              {["New York — 148 W 57th St", "Paris — 12 Rue du Faubourg", "Milan — Via Montenapoleone 8"].map((loc) => (
-                <p key={loc} style={{ fontFamily: "var(--sans)", fontSize: "0.85rem", color: "rgba(255,255,255,0.5)" }}>
-                  {loc}
-                </p>
-              ))}
-            </div>
+            <p style={{ fontFamily: "var(--sans)", fontSize: "0.95rem", color: "rgba(255,255,255,0.7)" }}>
+              Cape Town, South Africa
+            </p>
           </div>
         </div>
 

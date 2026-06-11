@@ -49,10 +49,10 @@ const values = [
 ];
 
 const timeline = [
-  { year: "2013", event: "définir founded in New York with a roster of 12 models." },
-  { year: "2016", event: "Expanded to Paris and Milan. First major fashion week production." },
+  { year: "2013", event: "définir founded in Cape Town, South Africa with a roster of 12 models." },
+  { year: "2016", event: "First major fashion week production. Expanded nationally." },
   { year: "2019", event: "Launched full-service production division. 100+ brands served." },
-  { year: "2022", event: "Opened London and Tokyo offices. Roster now exceeds 200 talents." },
+  { year: "2022", event: "Roster exceeds 200 talents. Partnerships with international brands." },
   { year: "2025", event: "Named Agency of the Year by Vogue Business. Continuing to grow." },
 ];
 
@@ -139,10 +139,10 @@ export default function AboutPage() {
         </div>
         <div>
           <p style={{ fontFamily: "var(--sans)", fontSize: "0.95rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.85, marginBottom: "1.5rem" }}>
-            Founded in 2013 by Dominique Laurent, définir was built on a simple belief: that the best creative work happens when exceptional talent meets visionary direction. What started as a boutique modeling agency in New York has grown into a global force in production and talent management.
+            Founded in Cape Town, South Africa, définir was built on a simple belief: that the best creative work happens when exceptional talent meets visionary direction. What started as a boutique modeling agency in Cape Town has grown into a force in production and talent management.
           </p>
           <p style={{ fontFamily: "var(--sans)", fontSize: "0.95rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.85 }}>
-            Today we represent over 200 models, photographers, stylists, and creative directors across offices in New York, Paris, Milan, London, and Tokyo — shaping campaigns, editorials, and runway presentations for the world's most recognized brands.
+            Today we represent over 200 models, photographers, stylists, and creative directors — shaping campaigns, editorials, and runway presentations for some of the world's most recognized brands.
           </p>
         </div>
       </section>

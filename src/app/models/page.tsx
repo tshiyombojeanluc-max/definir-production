@@ -4,7 +4,7 @@ import ModelsClient from "./models-client"
 export const metadata: Metadata = {
   title: "Models — définir | Elite Talent Roster",
   description:
-    "Discover définir's exceptional roster of models for editorial, commercial, fashion, and runway work. Representing elite talent in New York, Paris, Milan, and beyond.",
+    "Discover définir's exceptional roster of models for editorial, commercial, fashion, and runway work. Representing elite talent from Cape Town, South Africa and beyond.",
   openGraph: {
     title: "Models — définir | Elite Talent Roster",
     description:
