@@ -10,45 +10,24 @@ export const metadata: Metadata = {
 const projects = [
   {
     id: 1,
-    title: "Maison Collective",
+    title: "Africa Day",
     category: "Editorial",
-    year: "2024",
-    image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=700&auto=format&fit=crop&q=80",
+    year: "2025",
+    image: "/images/projects/africa-day/1.jpg",
   },
   {
     id: 2,
-    title: "Noir SS25",
+    title: "Black Revo",
     category: "Campaign",
     year: "2025",
-    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=700&auto=format&fit=crop&q=80",
+    image: "/images/projects/black-revo/1.jpg",
   },
   {
     id: 3,
-    title: "Vantage Point",
-    category: "Runway",
-    year: "2024",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=700&auto=format&fit=crop&q=80",
-  },
-  {
-    id: 4,
-    title: "Raw Geometry",
+    title: "Night in Lagos",
     category: "Editorial",
     year: "2025",
-    image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=700&auto=format&fit=crop&q=80",
-  },
-  {
-    id: 5,
-    title: "Studio Blanc",
-    category: "Campaign",
-    year: "2024",
-    image: "https://images.unsplash.com/photo-1524799526615-766a9833dec0?w=700&auto=format&fit=crop&q=80",
-  },
-  {
-    id: 6,
-    title: "Alter Ego",
-    category: "Lookbook",
-    year: "2025",
-    image: "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=700&auto=format&fit=crop&q=80",
+    image: "/images/projects/night-in-lagos/1.jpg",
   },
 ];
 
