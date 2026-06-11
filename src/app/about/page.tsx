@@ -97,16 +97,28 @@ export default function AboutPage() {
         </h1>
       </section>
 
-      {/* Full-width image */}
-      <div style={{ width: "100%", height: "55vh", overflow: "hidden", position: "relative" }}>
-        <img
-          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&auto=format&fit=crop&q=50"
-          alt="Studio"
-          loading="eager"
-          fetchPriority="low"
-          style={{ width: "100%", height: "100%", objectFit: "cover", filter: "grayscale(15%)" }}
-        />
-        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.3)" }} />
+      {/* Full-width two-image banner */}
+      <div style={{ width: "100%", height: "clamp(320px, 60vh, 700px)", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2px" }}>
+        <div style={{ position: "relative", overflow: "hidden" }}>
+          <Image
+            src="/images/about/hero-1.jpg"
+            alt="définir editorial shoot"
+            fill
+            priority
+            sizes="50vw"
+            style={{ objectFit: "cover", objectPosition: "center top" }}
+          />
+        </div>
+        <div style={{ position: "relative", overflow: "hidden" }}>
+          <Image
+            src="/images/about/hero-2.jpg"
+            alt="définir production shoot"
+            fill
+            priority
+            sizes="50vw"
+            style={{ objectFit: "cover", objectPosition: "center top" }}
+          />
+        </div>
       </div>
 
       {/* Story */}
