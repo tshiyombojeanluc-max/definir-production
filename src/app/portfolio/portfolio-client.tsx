@@ -22,7 +22,7 @@ const projects = [
   },
   {
     id: 2,
-    title: "Black Revo",
+    title: "Black Revolution",
     category: "Campaign",
     year: "2025",
     cover: "/images/projects/black-revo/1.jpg",
