@@ -25,8 +25,6 @@ export default function HomePage() {
         />
         <HeroSlideshow />
 
-        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.55)", zIndex: 1 }} />
-
         <div
           style={{
             position: "absolute",
@@ -38,6 +36,7 @@ export default function HomePage() {
             justifyContent: "center",
             textAlign: "center",
             padding: "0 1.5rem",
+            pointerEvents: "none",
           }}
         >
           <p
@@ -110,6 +109,7 @@ export default function HomePage() {
               padding: "0.85rem 2.4rem",
               textDecoration: "none",
               transition: "opacity 0.2s",
+              pointerEvents: "auto",
             }}
           >
             Discover Our Work
@@ -127,6 +127,7 @@ export default function HomePage() {
             flexDirection: "column",
             alignItems: "center",
             gap: "0.5rem",
+            pointerEvents: "none",
           }}
         >
           <p style={{ fontFamily: "var(--sans)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)" }}>

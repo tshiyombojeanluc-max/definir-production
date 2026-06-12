@@ -38,7 +38,7 @@ export function ModelCard({ model, onClick, index }: ModelCardProps) {
           src={model.heroImage}
           alt={model.name}
           fill
-          sizes="(max-width: 900px) 50vw, 33vw"
+          sizes="(max-width: 500px) 100vw, (max-width: 900px) 50vw, 33vw"
           style={{
             objectFit: "cover",
             objectPosition: "top center",

@@ -16,11 +16,9 @@ const slides = [
 export function HeroSlideshow() {
   const [current, setCurrent] = useState(0)
   const [prev, setPrev]       = useState<number | null>(null)
-  const [ready, setReady]     = useState(false)
 
-  // Start cycling only once the first image is on screen
+  // Start cycling immediately on mount — no onLoad gate (cached images can silently skip onLoad)
   useEffect(() => {
-    if (!ready) return
     const id = setInterval(() => {
       setCurrent(c => {
         setPrev(c)
@@ -28,7 +26,7 @@ export function HeroSlideshow() {
       })
     }, 3200)
     return () => clearInterval(id)
-  }, [ready])
+  }, [])
 
   const preloadIdx = (current + 1) % slides.length
 
@@ -39,20 +37,17 @@ export function HeroSlideshow() {
         const isPrev    = i === prev
         const isPreload = i === preloadIdx
 
-        // Only keep current + prev + next-preload in the DOM
         if (!isCurrent && !isPrev && !isPreload) return null
 
         return (
           <div
             key={s.src}
             style={{
-              position:   "absolute",
-              inset:      0,
-              // prev stays fully visible underneath — no black gap
-              opacity:    isCurrent ? 1 : isPrev ? 1 : 0,
-              zIndex:     isCurrent ? 2 : isPrev ? 1 : 0,
-              // only the incoming slide gets a transition
-              transition: isCurrent && prev !== null ? "opacity 0.65s ease" : "none",
+              position:      "absolute",
+              inset:         0,
+              opacity:       isCurrent ? 1 : isPrev ? 1 : 0,
+              zIndex:        isCurrent ? 2 : isPrev ? 1 : 0,
+              transition:    isCurrent && prev !== null ? "opacity 0.65s ease" : "none",
               pointerEvents: isCurrent ? "auto" : "none",
             }}
           >
@@ -61,30 +56,41 @@ export function HeroSlideshow() {
               alt=""
               aria-hidden
               loading={i === 0 || i === 1 ? "eager" : "lazy"}
-              onLoad={() => { if (i === 0) setReady(true) }}
               style={{
                 width:          "100%",
                 height:         "100%",
                 objectFit:      "cover",
                 objectPosition: s.position,
                 display:        "block",
-                animation:      isCurrent && ready ? "heroScale 3.5s ease-out forwards" : "none",
+                animation:      isCurrent ? "heroScale 3.5s ease-out forwards" : "none",
               }}
             />
           </div>
         )
       })}
 
-      {/* Dot indicators */}
+      {/* Darkening overlay — inside slideshow so it sits above images but below page text.
+          pointer-events: none so dots remain clickable. */}
       <div
         style={{
-          position: "absolute",
-          bottom:   "4.5rem",
-          right:    "2rem",
-          zIndex:   3,
-          display:  "flex",
+          position:      "absolute",
+          inset:         0,
+          background:    "rgba(0,0,0,0.55)",
+          zIndex:        3,
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* Dot indicators — above overlay */}
+      <div
+        style={{
+          position:      "absolute",
+          bottom:        "4.5rem",
+          right:         "2rem",
+          zIndex:        4,
+          display:       "flex",
           flexDirection: "column",
-          gap:      "6px",
+          gap:           "6px",
         }}
       >
         {slides.map((_, i) => (

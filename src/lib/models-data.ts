@@ -382,13 +382,3 @@ export const models: Model[] = [
     stats: { campaigns: 7, editorials: 16, runways: 3 },
   },
 ]
-
-export const allPortfolioImages = models.flatMap((m) =>
-  m.portfolioImages.map((src, i) => ({
-    id: `${m.id}-${i}`,
-    src,
-    alt: `${m.name} portfolio`,
-    title: m.name,
-    description: m.category,
-  }))
-)
