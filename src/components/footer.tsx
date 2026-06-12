@@ -12,6 +12,7 @@ const socials = [
   { label: "Instagram", href: "#" },
   { label: "LinkedIn",  href: "#" },
   { label: "Twitter",   href: "#" },
+  { label: "Facebook",  href: "https://www.facebook.com/share/1D8cZ1UkUp/?mibextid=wwXIfr" },
 ];
 
 export default function Footer() {
@@ -102,6 +103,8 @@ export default function Footer() {
                 <Link
                   key={s.label}
                   href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
                     fontFamily: "var(--sans)",
                     fontSize: "0.65rem",
