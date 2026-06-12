@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
 
     await transporter.sendMail({
       from: `"définir Website" <${process.env.GMAIL_USER}>`,
-      to: process.env.GMAIL_USER,
+      to: 'assistant.definir@gmail.com',
       replyTo: email,
       subject: `New Model Application — ${fullName}`,
       html: `
