@@ -48,13 +48,6 @@ const values = [
   },
 ];
 
-const timeline = [
-  { year: "2013", event: "définir founded in Cape Town, South Africa with a roster of 12 models." },
-  { year: "2016", event: "First major fashion week production. Expanded nationally." },
-  { year: "2019", event: "Launched full-service production division. 100+ brands served." },
-  { year: "2022", event: "Roster exceeds 200 talents. Partnerships with international brands." },
-  { year: "2025", event: "Named Agency of the Year by Vogue Business. Continuing to grow." },
-];
 
 export default function AboutPage() {
   return (
@@ -142,37 +135,8 @@ export default function AboutPage() {
             Founded in Cape Town, South Africa, définir was built on a simple belief: that the best creative work happens when exceptional talent meets visionary direction. What started as a boutique modeling agency in Cape Town has grown into a force in production and talent management.
           </p>
           <p style={{ fontFamily: "var(--sans)", fontSize: "0.95rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.85 }}>
-            Today we represent over 200 models, photographers, stylists, and creative directors — shaping campaigns, editorials, and runway presentations for some of the world's most recognized brands.
+            Today we represent 30+ models, photographers, stylists, and creative directors — shaping campaigns, editorials, and runway presentations for some of the world's most recognized brands.
           </p>
-        </div>
-      </section>
-
-      {/* Timeline */}
-      <section style={{ padding: "clamp(3.5rem, 7vw, 7rem) clamp(1.25rem, 4vw, 2.5rem)", maxWidth: "1400px", margin: "0 auto", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-        <p className="uppercase-label" style={{ color: "rgba(255,255,255,0.35)", marginBottom: "4rem" }}>
-          Milestones
-        </p>
-        <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
-          {timeline.map((item, i) => (
-            <div
-              key={i}
-              style={{
-                display: "grid",
-                gridTemplateColumns: "clamp(60px, 15vw, 120px) 1fr",
-                gap: "1.5rem",
-                padding: "2rem 0",
-                borderTop: "1px solid rgba(255,255,255,0.08)",
-                alignItems: "baseline",
-              }}
-            >
-              <span style={{ fontFamily: "var(--serif)", fontSize: "1.1rem", fontWeight: 300, color: "rgba(255,255,255,0.35)" }}>
-                {item.year}
-              </span>
-              <p style={{ fontFamily: "var(--sans)", fontSize: "0.9rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.6 }}>
-                {item.event}
-              </p>
-            </div>
-          ))}
         </div>
       </section>
 
