@@ -79,22 +79,6 @@ function ParallaxSection({ section }: { section: SectionData }) {
         >
           {section.description}
         </p>
-        <div
-          style={{
-            display: "inline-block",
-            marginTop: "2.5rem",
-            borderBottom: "1px solid rgba(255,255,255,0.4)",
-            paddingBottom: "2px",
-            fontFamily: "var(--sans)",
-            fontSize: "0.65rem",
-            letterSpacing: "0.2em",
-            textTransform: "uppercase",
-            cursor: "pointer",
-            transition: "border-color 0.2s",
-          }}
-        >
-          Learn More
-        </div>
       </motion.div>
 
       {/* Image side */}
