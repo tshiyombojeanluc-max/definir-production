@@ -13,6 +13,16 @@ export default function HomePage() {
     <>
       {/* ── Hero ── */}
       <section style={{ position: "relative", height: "100vh", overflow: "hidden" }}>
+        {/* Preloaded first frame — visible before JS hydrates (SSR priority image) */}
+        <Image
+          src="/images/hero/01.jpg"
+          alt=""
+          aria-hidden
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: "cover", objectPosition: "center 18%", zIndex: 0 }}
+        />
         <HeroSlideshow />
 
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.55)", zIndex: 1 }} />

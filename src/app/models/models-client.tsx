@@ -1,8 +1,8 @@
 "use client"
 
-import { useState, useMemo, useEffect } from "react"
+import { useState, useMemo, useEffect, useRef } from "react"
 import dynamic from "next/dynamic"
-import { models, allPortfolioImages, type Model, type ModelCategory } from "@/lib/models-data"
+import { models, type Model, type ModelCategory } from "@/lib/models-data"
 import { ModelCard } from "@/components/models/model-card"
 import { ModelModal } from "@/components/models/model-modal"
 import { BecomeModelForm } from "@/components/models/become-model-form"
@@ -20,18 +20,21 @@ const SphereImageGrid = dynamic(() => import("@/components/ui/img-sphere"), {
 
 const CATEGORIES: (ModelCategory | "All")[] = ["All", "Female", "Male", "Fashion", "Editorial", "Commercial"]
 
-const sphereImages = allPortfolioImages.map((img) => ({
-  id: img.id,
-  src: img.src,
-  alt: img.alt,
-  title: img.title,
-  description: img.description,
+// One image per model (15 total) — not all 75 portfolio images
+const sphereImages = models.map((m) => ({
+  id: String(m.id),
+  src: m.heroImage,
+  alt: m.name,
+  title: m.name,
+  description: m.category,
 }))
 
 export default function ModelsClient() {
   const [activeCategory, setActiveCategory] = useState<ModelCategory | "All">("All")
   const [selectedModel, setSelectedModel] = useState<Model | null>(null)
   const [sphereSize, setSphereSize] = useState(520)
+  const [sphereVisible, setSphereVisible] = useState(false)
+  const sphereSentinelRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const update = () => {
@@ -41,6 +44,18 @@ export default function ModelsClient() {
     update()
     window.addEventListener("resize", update)
     return () => window.removeEventListener("resize", update)
+  }, [])
+
+  // Only mount the sphere when its section scrolls into view
+  useEffect(() => {
+    const el = sphereSentinelRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setSphereVisible(true); observer.disconnect() } },
+      { rootMargin: "200px" }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
   }, [])
 
   const filtered = useMemo(
@@ -251,6 +266,7 @@ export default function ModelsClient() {
 
       {/* ── Sphere Gallery ── */}
       <section
+        ref={sphereSentinelRef}
         style={{
           padding: "clamp(3rem, 6vw, 6rem) clamp(1.25rem, 4vw, 2.5rem)",
           borderTop: "1px solid rgba(255,255,255,0.08)",
@@ -288,16 +304,18 @@ export default function ModelsClient() {
           Drag to explore our models' collective portfolio — a constellation of talent, creativity, and craft.
         </p>
 
-        <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-          <SphereImageGrid
-            images={sphereImages}
-            containerSize={sphereSize}
-            sphereRadius={Math.round(sphereSize * 0.385)}
-            autoRotate
-            autoRotateSpeed={0.18}
-            dragSensitivity={0.7}
-            baseImageScale={0.13}
-          />
+        <div style={{ width: "100%", display: "flex", justifyContent: "center", minHeight: sphereSize }}>
+          {sphereVisible && (
+            <SphereImageGrid
+              images={sphereImages}
+              containerSize={sphereSize}
+              sphereRadius={Math.round(sphereSize * 0.385)}
+              autoRotate
+              autoRotateSpeed={0.18}
+              dragSensitivity={0.7}
+              baseImageScale={0.13}
+            />
+          )}
         </div>
       </section>
 

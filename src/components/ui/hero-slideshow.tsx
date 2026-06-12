@@ -33,7 +33,7 @@ export function HeroSlideshow() {
   const preloadIdx = (current + 1) % slides.length
 
   return (
-    <div style={{ position: "absolute", inset: 0, overflow: "hidden", background: "#000" }}>
+    <div style={{ position: "absolute", inset: 0, overflow: "hidden", zIndex: 1 }}>
       {slides.map((s, i) => {
         const isCurrent = i === current
         const isPrev    = i === prev
