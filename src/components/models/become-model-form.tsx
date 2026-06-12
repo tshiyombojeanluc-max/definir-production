@@ -131,13 +131,38 @@ export function BecomeModelForm() {
     return Object.keys(e).length === 0
   }
 
+  const fileToBase64 = (file: File): Promise<string> =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader()
+      reader.onload = () => resolve((reader.result as string).split(',')[1])
+      reader.onerror = reject
+      reader.readAsDataURL(file)
+    })
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!validate()) return
     setLoading(true)
-    await new Promise((r) => setTimeout(r, 1800))
+    try {
+      const attachments: { name: string; data: string; type: string }[] = []
+      if (form.headshot) attachments.push({ name: `headshot_${form.headshot.name}`, data: await fileToBase64(form.headshot), type: form.headshot.type })
+      if (form.fullBody) attachments.push({ name: `fullbody_${form.fullBody.name}`, data: await fileToBase64(form.fullBody), type: form.fullBody.type })
+      for (const f of form.portfolio) attachments.push({ name: `portfolio_${f.name}`, data: await fileToBase64(f), type: f.type })
+
+      const res = await fetch('/api/apply', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, headshot: null, fullBody: null, portfolio: [], attachments }),
+      })
+      if (res.ok) {
+        setSubmitted(true)
+      } else {
+        setErrors({ fullName: 'Submission failed. Please try again or contact us directly.' })
+      }
+    } catch {
+      setErrors({ fullName: 'Submission failed. Please try again or contact us directly.' })
+    }
     setLoading(false)
-    setSubmitted(true)
   }
 
   if (submitted) return (

@@ -14,6 +14,8 @@ const projectTypes = [
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -27,9 +29,25 @@ export default function ContactPage() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError("Something went wrong. Please try again or email us directly.");
+      }
+    } catch {
+      setError("Something went wrong. Please try again or email us directly.");
+    }
+    setLoading(false);
   };
 
   const inputStyle: React.CSSProperties = {
@@ -289,25 +307,31 @@ export default function ContactPage() {
                 />
               </div>
 
+              {error && (
+                <p style={{ fontFamily: "var(--sans)", fontSize: "0.8rem", color: "#f87171", textAlign: "center" }}>
+                  {error}
+                </p>
+              )}
               <button
                 type="submit"
+                disabled={loading}
                 style={{
                   fontFamily: "var(--sans)",
                   fontSize: "0.65rem",
                   fontWeight: 500,
                   letterSpacing: "0.22em",
                   textTransform: "uppercase",
-                  color: "#000",
+                  color: loading ? "rgba(0,0,0,0.4)" : "#000",
                   background: "#fff",
                   border: "none",
                   padding: "1rem 0",
-                  cursor: "pointer",
+                  cursor: loading ? "default" : "pointer",
                   width: "100%",
                   transition: "opacity 0.2s",
                   marginTop: "0.5rem",
                 }}
               >
-                Send Message
+                {loading ? "Sending…" : "Send Message"}
               </button>
             </form>
           )}
