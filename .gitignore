@@ -36,6 +36,11 @@ yarn-error.log*
 # vercel
 .vercel
 
+# raw source images (originals, already renamed into proper folders)
+public/images/New folder*/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel

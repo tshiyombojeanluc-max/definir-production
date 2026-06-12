@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "motion/react"
 import { X, MapPin, ArrowUpRight } from "lucide-react"
 import type { Model } from "@/lib/models-data"
 import Link from "next/link"
+import Image from "next/image"
 
 interface ModelModalProps {
   model: Model | null
@@ -66,13 +67,13 @@ export function ModelModal({ model, onClose }: ModelModalProps) {
           >
             {/* Left — hero image */}
             <div className="modal-img-col">
-              <img
+              <Image
                 src={model.heroImage}
                 alt={model.name}
-                fetchPriority="high"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
                 style={{
-                  width: "100%",
-                  height: "100%",
                   objectFit: "cover",
                   objectPosition: "top center",
                   filter: "grayscale(10%)",
@@ -235,12 +236,13 @@ export function ModelModal({ model, onClose }: ModelModalProps) {
                 </p>
                 <div className="modal-portfolio-grid">
                   {model.portfolioImages.map((src, i) => (
-                    <div key={i} style={{ aspectRatio: "3/4", overflow: "hidden" }}>
-                      <img
+                    <div key={i} style={{ aspectRatio: "3/4", overflow: "hidden", position: "relative" }}>
+                      <Image
                         src={src}
                         alt={`${model.name} ${i + 1}`}
-                        style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", filter: "grayscale(15%)" }}
-                        loading="lazy"
+                        fill
+                        sizes="(max-width: 768px) 33vw, 20vw"
+                        style={{ objectFit: "cover", objectPosition: "top", filter: "grayscale(15%)" }}
                       />
                     </div>
                   ))}
