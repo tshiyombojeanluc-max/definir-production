@@ -9,7 +9,7 @@ const links = [
 ];
 
 const socials = [
-  { label: "Instagram", href: "#" },
+  { label: "Instagram", href: "https://www.instagram.com/definir.production?igsh=b2pveHpuNTlwdmpk" },
   { label: "LinkedIn",  href: "#" },
   { label: "Twitter",   href: "#" },
   { label: "Facebook",  href: "https://www.facebook.com/share/1D8cZ1UkUp/?mibextid=wwXIfr" },
