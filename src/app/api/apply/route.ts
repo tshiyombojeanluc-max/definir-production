@@ -13,7 +13,9 @@ export async function POST(request: NextRequest) {
     } = body
 
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
       auth: {
         user: process.env.GMAIL_USER,
         pass: process.env.GMAIL_APP_PASSWORD,
@@ -86,7 +88,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ success: true })
   } catch (err) {
-    console.error('Apply email error:', err)
+    console.error('Apply email error:', JSON.stringify(err, Object.getOwnPropertyNames(err)))
     return NextResponse.json({ error: 'Failed to send application' }, { status: 500 })
   }
 }
