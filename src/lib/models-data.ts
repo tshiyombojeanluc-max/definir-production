@@ -41,7 +41,7 @@ export const models: Model[] = [
     specialties: ['Modest Fashion', 'Editorial', 'Beauty'],
     biography:
       'Fatima brings a rare elegance to every frame — her presence commands attention while her warmth invites connection. Rooted in Cape Town, she has become one of définir\'s most distinctive voices in modest fashion and editorial work, redefining contemporary beauty standards with effortless grace and cultural pride.',
-    heroImage: '/images/models/fatima/1.jpg',
+    heroImage: '/images/models/fatima/2.jpg',
     portfolioImages: [
       '/images/models/fatima/1.jpg',
       '/images/models/fatima/2.jpg',
@@ -65,7 +65,7 @@ export const models: Model[] = [
     specialties: ['Streetwear', 'Commercial', 'Lifestyle'],
     biography:
       'Gustavo is the embodiment of Cape Town\'s creative street culture — bold, fearless, and effortlessly stylish. With a natural charisma that translates across all formats, he brings an authentic energy to commercial and lifestyle campaigns that resonates with a new generation of South African audiences.',
-    heroImage: '/images/models/gustavo/1.jpg',
+    heroImage: '/images/models/gustavo/3.jpg',
     portfolioImages: [
       '/images/models/gustavo/1.jpg',
       '/images/models/gustavo/2.jpg',
@@ -89,7 +89,7 @@ export const models: Model[] = [
     specialties: ['Commercial', 'Sportswear', 'Lifestyle'],
     biography:
       'Hossanna\'s athletic build and natural confidence make her one of définir\'s most versatile female talents. Whether on the court or in the studio, she commands every environment with ease. Her work spans commercial campaigns, sportswear shoots, and lifestyle editorials across South Africa.',
-    heroImage: '/images/models/hossanna/1.jpg',
+    heroImage: '/images/models/hossanna/4.jpg',
     portfolioImages: [
       '/images/models/hossanna/1.jpg',
       '/images/models/hossanna/2.jpg',
@@ -113,7 +113,7 @@ export const models: Model[] = [
     specialties: ['Editorial', 'High Fashion', 'Art Direction'],
     biography:
       'Jean Luc is a storyteller in front of the camera. His work is defined by an intense, cinematic quality that elevates every editorial he appears in. One of définir\'s leading male editorial talents, Jean Luc brings conceptual depth and visual intelligence to every collaboration — a rare combination in South African fashion.',
-    heroImage: '/images/models/jean-luc/1.jpg',
+    heroImage: '/images/models/jean-luc/4.jpg',
     portfolioImages: [
       '/images/models/jean-luc/1.jpg',
       '/images/models/jean-luc/2.jpg',
@@ -137,7 +137,7 @@ export const models: Model[] = [
     specialties: ['Fashion', 'Editorial', 'Commercial'],
     biography:
       'Kendall carries a quiet intensity that draws the eye immediately. Her ability to shift between soft editorial and bold commercial work has established her as one of définir\'s most adaptable female talents. Based in Cape Town, she is building a career defined by versatility, discipline, and a striking natural presence.',
-    heroImage: '/images/models/kendall/1.jpg',
+    heroImage: '/images/models/kendall/3.jpg',
     portfolioImages: [
       '/images/models/kendall/1.jpg',
       '/images/models/kendall/2.jpg',
@@ -184,7 +184,7 @@ export const models: Model[] = [
     specialties: ['High Fashion', 'Formal', 'Luxury'],
     biography:
       'Laudice embodies the future of African luxury fashion. Tall, sharp, and effortlessly polished, he brings a powerful elegance to formal and high fashion work that few can match. His presence in a frame signals quality — brands across South Africa seek him out for their most prestigious campaigns.',
-    heroImage: '/images/models/laudice/1.jpg',
+    heroImage: '/images/models/laudice/4.jpg',
     portfolioImages: [
       '/images/models/laudice/1.jpg',
       '/images/models/laudice/2.jpg',
@@ -232,7 +232,7 @@ export const models: Model[] = [
     specialties: ['African Fashion', 'Editorial', 'Commercial'],
     biography:
       'Lilitha is a proud expression of African beauty and identity. Her work with African designers and contemporary fashion brands has placed her at the forefront of Cape Town\'s fashion movement. With a poised confidence and natural elegance, she brings cultural richness and modern sensibility to every image she creates.',
-    heroImage: '/images/models/lilitha/1.jpg',
+    heroImage: '/images/models/lilitha/4.jpg',
     portfolioImages: [
       '/images/models/lilitha/1.jpg',
       '/images/models/lilitha/2.jpg',
@@ -256,7 +256,7 @@ export const models: Model[] = [
     specialties: ['Fashion', 'Editorial', 'Streetwear'],
     biography:
       'Mike brings a sharp, contemporary edge to every project. His look — effortlessly cool and culturally rooted — resonates across fashion, editorial, and streetwear markets. Based in Cape Town, Mike has built a reputation for reliability, creativity, and a powerful screen presence that brands consistently return to.',
-    heroImage: '/images/models/mike/1.jpg',
+    heroImage: '/images/models/mike/2.jpg',
     portfolioImages: [
       '/images/models/mike/1.jpg',
       '/images/models/mike/2.jpg',
@@ -280,7 +280,7 @@ export const models: Model[] = [
     specialties: ['Editorial', 'Alternative', 'Fashion'],
     biography:
       'Prescilia defies convention. Her bold, uncompromising approach to editorial work has made her one of définir\'s most distinctive female voices. She thrives in conceptual, high-contrast shoots where attitude and story take precedence — and she delivers both in abundance. An emerging force in Cape Town\'s editorial scene.',
-    heroImage: '/images/models/prescilia/1.jpg',
+    heroImage: '/images/models/prescilia/3.jpg',
     portfolioImages: [
       '/images/models/prescilia/1.jpg',
       '/images/models/prescilia/2.jpg',
@@ -349,7 +349,7 @@ export const models: Model[] = [
     specialties: ['Streetwear', 'Editorial', 'Urban Fashion'],
     biography:
       'Yaseen is the voice of Cape Town\'s urban creative scene. His editorial work blends streetwear culture with high fashion sensibility, creating images that feel both cinematic and authentic. Equally at home in a studio or on location, he brings a sharp visual intelligence and genuine style to every brief.',
-    heroImage: '/images/models/yaseen/1.jpg',
+    heroImage: '/images/models/yaseen/3.jpg',
     portfolioImages: [
       '/images/models/yaseen/1.jpg',
       '/images/models/yaseen/2.jpg',
